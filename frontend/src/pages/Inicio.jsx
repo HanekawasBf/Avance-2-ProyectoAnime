@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import MenuFiltros from "../components/MenuFiltros";
 import MejoresCalificados from "../components/MejoresCalificados";
 import AnimeList from "../components/AnimeList";
+import Portada from "../components/Portada";
 
 function Inicio() {
   const [animes, setAnimes] = useState([]);
@@ -92,11 +93,7 @@ function Inicio() {
     return (
       <div className="card-wrap" key={anime.id}>
         <Link to={`/anime/${anime.id}`} className="card">
-          {anime.imagen ? (
-            <img src={anime.imagen} alt={anime.titulo} />
-          ) : (
-            <div className="card-placeholder">A</div>
-          )}
+          <Portada src={anime.imagen} titulo={anime.titulo} />
 
           <div className="card-body">
             <span className="badge">{anime.genero}</span>

@@ -12,7 +12,7 @@ class Anime(models.Model):
     titulo = models.CharField(max_length=150)
     sinopsis = models.TextField()
     anio_estreno = models.IntegerField()
-    imagen_url = models.URLField(blank=True)
+    imagen_url = models.CharField(max_length=500, blank=True)
     genero = models.ForeignKey(Genero, on_delete=models.CASCADE)
 
     def __str__(self):

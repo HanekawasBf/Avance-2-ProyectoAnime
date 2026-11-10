@@ -15,6 +15,10 @@ class Command(BaseCommand):
         animes = Anime.objects.all()
 
         for anime in animes:
+            if anime.imagen_url.startswith("/portadas/"):
+                self.stdout.write(f"Se conserva la portada local: {anime.titulo}")
+                continue
+
             try:
                 parametros = urlencode({
                     "q": anime.titulo,

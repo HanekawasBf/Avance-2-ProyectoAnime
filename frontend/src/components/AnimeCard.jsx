@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Estrellas from "./Estrellas";
+import Portada from "./Portada";
 
 function AnimeCard({ anime, esFavorito, onFavorito }) {
   return (
@@ -9,11 +10,7 @@ function AnimeCard({ anime, esFavorito, onFavorito }) {
       </button>
 
       <Link to={`/anime/${anime.id}`} className="card">
-        {anime.imagen ? (
-          <img src={anime.imagen} alt={anime.titulo} />
-        ) : (
-          <div className="card-placeholder">{anime.titulo[0]}</div>
-        )}
+        <Portada src={anime.imagen} titulo={anime.titulo} />
         <div className="card-body">
           <span className="badge">{anime.genero}</span>
           <h3>{anime.titulo}</h3>

@@ -382,9 +382,21 @@ main h2 {
   margin-bottom: 32px;
 }
 
-.galeria img {
+.galeria-portada,
+.galeria-portada-placeholder {
   height: 200px;
   border-radius: 8px;
+}
+
+.galeria-portada-placeholder {
+  display: flex;
+  min-width: 140px;
+  align-items: center;
+  justify-content: center;
+  background: var(--placeholder);
+  color: var(--placeholder-texto);
+  font-size: 48px;
+  font-weight: bold;
 }
 
 /* ---------- Reseñas ---------- */

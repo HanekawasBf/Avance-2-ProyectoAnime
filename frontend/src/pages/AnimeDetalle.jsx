@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import ReviewList from "../components/ReviewList";
 import Estrellas from "../components/Estrellas";
+import Portada from "../components/Portada";
 
 function AnimeDetalle() {
   const { id } = useParams();
@@ -35,11 +36,12 @@ function AnimeDetalle() {
         {anime && (
           <>
             <div className="detalle-top">
-              {anime.imagen ? (
-                <img className="detalle-portada" src={anime.imagen} alt={anime.titulo} />
-              ) : (
-                <div className="detalle-portada card-placeholder">{anime.titulo[0]}</div>
-              )}
+              <Portada
+                className="detalle-portada"
+                placeholderClassName="detalle-portada card-placeholder"
+                src={anime.imagen}
+                titulo={anime.titulo}
+              />
               <div className="detalle-info">
                 <span className="badge">{anime.genero}</span>
                 <h2>{anime.titulo}</h2>
@@ -55,7 +57,13 @@ function AnimeDetalle() {
                 <h3>Imágenes</h3>
                 <div className="galeria">
                   {anime.imagenes.map((url) => (
-                    <img key={url} src={url} alt={anime.titulo} />
+                    <Portada
+                      key={url}
+                      className="galeria-portada"
+                      placeholderClassName="galeria-portada-placeholder"
+                      src={url}
+                      titulo={anime.titulo}
+                    />
                   ))}
                 </div>
               </>
